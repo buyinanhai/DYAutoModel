@@ -99,9 +99,9 @@ class YYModelOCCode: DyGenerateCode {
             default:
                 break
             }
-            content.append("        /**\(value)*/\n")
+            content.append("    /**\(value)*/\n")
             
-            content.append("        @property (nonatomic, copy) \(type) *\(key)\n\n;")
+            content.append("    @property (nonatomic, copy) \(type) *\(self.config!.prefix)\(key);\n\n")
         }
         return content;
         
@@ -115,10 +115,9 @@ class YYModelOCCode: DyGenerateCode {
         for (_, dict) in json.enumerated() {
             let key = dict.key
             if self.config?.prefix.count ?? 0 > 0 {
-                content.append("\n            @\"\(self.config!.prefix)\(key)\" : @\"\(key)\"")
+                content.append("\n            @\"\(self.config!.prefix)\(key)\" : @\"\(key)\",")
             } else {
-                
-                content.append("\n            \(key) <- map[\"\(key)\"]")
+                content.append("\n            @\"\(key)\" : @\"\(key)\",")
             }
         }
         content.append("\n\n    };\n}")

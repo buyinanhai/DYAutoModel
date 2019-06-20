@@ -24,6 +24,7 @@ class ViewController: NSViewController {
 //        self.jsonView.string = "{\"username\":\"\", \"password\":1234}"
 //        self.pathView.string = "/Users/apple/Desktop/工作/autoModel"
         self.popUpBtn.addItem(withTitle: "OC-MJExtension");
+        self.field.stringValue = "DYAutoModel";
         // Do any additional setup after loading the view.
     }
     
@@ -34,6 +35,7 @@ class ViewController: NSViewController {
         config.path = self.pathView.string;
         config.jsonStr = self.jsonView.string;
         config.prefix = self.prefixField.stringValue;
+        
     
         
         do {
