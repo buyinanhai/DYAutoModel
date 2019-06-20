@@ -16,7 +16,7 @@ protocol GenerateCodeProtocol {
     func generateFile(_ fileName: String, _ ext: String, _ json: [String : Any]) throws;
     
     /**生成类*/
-    func generateClass(_ className: String, _ json: [String : Any]) -> String;
+    func generateClass(_ className: String, _ json: [String : Any], _ fileExt: String) -> String;
     
     /**生成属性*/
     func generateProperty(_ json: [String : Any]) -> String;

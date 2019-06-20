@@ -11,6 +11,7 @@
 		18BCECE2229F879400CC00C8 /* SwiftObjectMapperCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BCECE1229F879400CC00C8 /* SwiftObjectMapperCode.swift */; };
 		18BCECEB229FB92700CC00C8 /* GenerateCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BCECEA229FB92700CC00C8 /* GenerateCodeProtocol.swift */; };
 		18BCECED22A0CE4A00CC00C8 /* MJExtensionOCCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BCECEC22A0CE4A00CC00C8 /* MJExtensionOCCode.swift */; };
+		18BCECF022A4B08800CC00C8 /* DYCodeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BCECEF22A4B08800CC00C8 /* DYCodeConfig.swift */; };
 		604C7C722269CF8A001B779F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604C7C712269CF8A001B779F /* AppDelegate.swift */; };
 		604C7C742269CF8A001B779F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604C7C732269CF8A001B779F /* ViewController.swift */; };
 		604C7C762269CF8B001B779F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 604C7C752269CF8B001B779F /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		18BCECE1229F879400CC00C8 /* SwiftObjectMapperCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftObjectMapperCode.swift; sourceTree = "<group>"; };
 		18BCECEA229FB92700CC00C8 /* GenerateCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateCodeProtocol.swift; sourceTree = "<group>"; };
 		18BCECEC22A0CE4A00CC00C8 /* MJExtensionOCCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MJExtensionOCCode.swift; sourceTree = "<group>"; };
+		18BCECEF22A4B08800CC00C8 /* DYCodeConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DYCodeConfig.swift; sourceTree = "<group>"; };
 		604C7C6E2269CF8A001B779F /* 生成模型文件.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "生成模型文件.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		604C7C712269CF8A001B779F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		604C7C732269CF8A001B779F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				18BCECE1229F879400CC00C8 /* SwiftObjectMapperCode.swift */,
 				18BCECEA229FB92700CC00C8 /* GenerateCodeProtocol.swift */,
 				18BCECEC22A0CE4A00CC00C8 /* MJExtensionOCCode.swift */,
+				18BCECEF22A4B08800CC00C8 /* DYCodeConfig.swift */,
 			);
 			path = DYAutoModel;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				18BCECEB229FB92700CC00C8 /* GenerateCodeProtocol.swift in Sources */,
 				18BCECED22A0CE4A00CC00C8 /* MJExtensionOCCode.swift in Sources */,
 				604C7C742269CF8A001B779F /* ViewController.swift in Sources */,
+				18BCECF022A4B08800CC00C8 /* DYCodeConfig.swift in Sources */,
 				604C7C9E2269D15C001B779F /* DyGenerateCode.swift in Sources */,
 				18BCECE2229F879400CC00C8 /* SwiftObjectMapperCode.swift in Sources */,
 				18BCECE0229F877E00CC00C8 /* YYModelOCCode.swift in Sources */,

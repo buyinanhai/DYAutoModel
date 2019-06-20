@@ -903,6 +903,7 @@
                         <outlet property="logLabel" destination="IFO-nF-pTH" id="gk3-Qa-Azv"/>
                         <outlet property="pathView" destination="ECK-dT-Zv2" id="NJw-wy-c1r"/>
                         <outlet property="popUpBtn" destination="tze-Jq-mvY" id="ngm-g3-gqJ"/>
+                        <outlet property="prefixField" destination="wpY-GF-JhQ" id="HTy-GI-32Y"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

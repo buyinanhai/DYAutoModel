@@ -10,26 +10,13 @@ import Cocoa
 
 class SwiftObjectMapperCode: DyGenerateCode {
 
-    override class func generateCode(className: String, path: String, json: String) throws {
-        
-        let code = SwiftObjectMapperCode.init();
-        if className.count == 0 || path.count == 0 || json.count == 0 {
-            throw GenerateError.missingParameter;
-        }
-        code.className = className;
-        code.path = path;
-        code.jsonStr = json;
-        var dict: [String : Any]?;
-        do {
-            dict = try JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8)!, options: .allowFragments) as? [String : Any]
-            try code.generateFile(className, "swift", dict!);
-        } catch {
-            throw error;
-        }
+    
+    override class func generateCode(config: DYCodeConfig) throws {
+        try? super.generateCode(config: config);
     }
     
     
-    override func generateClass(_ className: String, _ json: [String : Any]) -> String {
+    override func generateClass(_ className: String, _ json: [String : Any], _ fileExt: String) -> String {
         var content = "//  Created by hansen \n\n\n\nimport Foundation \nimport ObjectMapper \n\n\n\n\n\nclass \(className): Mappable {\n\n\n\n";
         content.append(self.generateProperty(json));
         content.append(self.generateMapperMethod(json));
@@ -58,7 +45,7 @@ class SwiftObjectMapperCode: DyGenerateCode {
                 for item in value as! [Any]{
                     
                     if item is [String : Any] {
-                        let fileName = "\(className)_\(key)";
+                        let fileName = "\(self.config!.fileName)_\(key)";
                         try? self.generateFile(fileName, "swift", item as! [String : Any]);
                         type = "[\(fileName)]?" ;
                         break;
@@ -69,14 +56,14 @@ class SwiftObjectMapperCode: DyGenerateCode {
                 
                 type = "[String:Any]?";
                 if value is [String : Any] {
-                    let fileName = className + "_" + key;
+                    let fileName = self.config!.fileName + "_" + key;
                     try? self.generateFile(fileName, "swift", value as! [String : Any]);
                     
                     type = "\(fileName)?";
                 } else if value is [Any] {
                     for item in value as! [Any]{
                         if item is [String : Any] {
-                            let fileName = "\(className)_\(key)";
+                            let fileName = "\(self.config!.fileName)_\(key)";
                             try? self.generateFile(fileName, "swift", item as! [String : Any]);
                             type = "[\(fileName)]?" ;
                             break;
@@ -95,7 +82,12 @@ class SwiftObjectMapperCode: DyGenerateCode {
             }
             content.append("        /**\(value)*/\n")
             
-            content.append("        var \(key): \(type)\n\n")
+            if self.config!.prefix.count > 0 {
+                content.append("        var \(self.config!.prefix)\(key): \(type)\n\n")
+
+            } else {
+                content.append("        var \(key): \(type)\n\n")
+            }
         }
         return content;
         

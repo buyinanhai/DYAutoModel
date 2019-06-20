@@ -16,6 +16,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var logLabel: NSTextField!
     
     @IBOutlet weak var popUpBtn: NSPopUpButton!
+    @IBOutlet weak var prefixField: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,26 @@ class ViewController: NSViewController {
     
     @IBAction func gernerateBtnClick(_ sender: Any) {
         
+        let config = DYCodeConfig.init();
+        config.fileName = self.field.stringValue;
+        config.path = self.pathView.string;
+        config.jsonStr = self.jsonView.string;
+        config.prefix = self.prefixField.stringValue;
+    
+        
         do {
-            try SwiftObjectMapperCode.generateCode(className: self.field.stringValue, path: self.pathView.string, json: self.jsonView.string)
+            let integer =  self.popUpBtn.indexOfSelectedItem;
+            
+            if integer == 1 {
+                try SwiftObjectMapperCode.generateCode(config: config);
+
+            } else if integer == 2 {
+                config.fileExt = "h";
+                try YYModelOCCode.generateCode(config: config);
+
+            } else if integer == 0 {
+                try DyGenerateCode.generateCode(config: config);
+            }
             self.logLabel.stringValue = "写入成功";
         } catch GenerateError.missingParameter {
             self.logLabel.stringValue = "缺少必要参数";
